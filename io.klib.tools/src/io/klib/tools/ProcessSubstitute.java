@@ -28,11 +28,12 @@ public class ProcessSubstitute {
 
 	final static boolean DEBUG = Boolean.valueOf(System.getProperty("debug"));
 	private static Thread stdInRead;
-	private static SysoutDebugging sysoutDebugging = new SysoutDebugging();
+	private static SysoutDebugging sysoutDebugging;
 
 	public static void main(String[] args) {
 
-		new SysoutDebugging().printUsage();
+		sysoutDebugging = new SysoutDebugging();
+		sysoutDebugging.printUsage();
 
 		stdInRead = new Thread("readStdIn") {
 			@Override
@@ -79,6 +80,10 @@ public class ProcessSubstitute {
 				String name = line[1];
 				int sleep = Integer.parseInt(line[2]);
 				new FakeLoad().createThread(name, sleep);
+				break;
+
+			case "help":
+				sysoutDebugging.printUsage();
 				break;
 
 			case "debug":
