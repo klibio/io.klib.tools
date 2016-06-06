@@ -1,0 +1,10 @@
+-buildpath: \
+	osgi.core;version=6.0,\
+	org.apache.servicemix.bundles.junit;version=4.12,\
+	org.knowhowlab.osgi.testing.utils;version=1.2,\
+	org.knowhowlab.osgi.testing.assertions;version=1.2,\
+	io.klib.api;version=latest
+
+Bundle-Version: 0.1.0.${tstamp;yyyyMMdd-HHmmss}
+Private-Package: io.klib.api.integrationtest
+Test-Cases: io.klib.api.integrationtest.ProcessGuardTest

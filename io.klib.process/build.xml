@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="project" default="default">
+
+	<tstamp>
+		<format property="buildId" pattern="yyyyMMdd-HHmmss" timezone="UTC" />
+	</tstamp>
+	<!--
+    <record name="ant-recorder.log" loglevel="verbose" action="start" />
+-->
+
+	<dirname property="dir.script.os" file="${ant.file}" />
+	<pathconvert property="dir.script" targetos="unix">
+		<path location="${dir.script.os}" />
+	</pathconvert>
+	<dirname property="dir.workspace" file="${dir.script}" />
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="init">
+		<taskdef resource="net/sf/antcontrib/antlib.xml">
+			<classpath path="${dir.workspace}/build.ant/lib/ant-contrib-1.0b3.jar" />
+		</taskdef>
+
+	</target>
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="default" depends="init" description="description">
+		<echo message="bnd.packager starting ..." />
+
+		<property name="dir.export" value="${dir.script}/exported" />
+
+		<for param="bndApp">
+			<fileset dir="${dir.script}">
+				<include name="*_EXP_*.bndrun" />
+			</fileset>
+			<sequential>
+				<basename property="filename.bndrun" file="@{bndApp}" />
+				<echo message="filename.bndrun=${filename.bndrun}" />
+				<dirname property="dir.app" file="@{bndApp}" />
+				<echo message="dir.app=${dir.app}" />
+
+				<basename property="name.project" file="${dir.app}" />
+				<echo message="exporting project=${name.project}" />
+
+				<fileset dir="${dir.workspace}/cnf" id="id.biz.aQute.bnd">
+					<include name="biz.aQute.bnd*.jar" />
+				</fileset>
+				<pathconvert property="jar.biz.aQute.bnd" refid="id.biz.aQute.bnd" targetos="unix" />
+				<java jar="${jar.biz.aQute.bnd}" fork="true" dir="${dir.app}" failonerror="true" timeout="120000">
+					<arg line="package" />
+					<arg line="${filename.bndrun}" />
+				</java>
+
+                <echo message="move and version the execuable jars to ${dir.export}" />
+                <move todir="${dir.export}">
+                    <fileset dir="${dir.app}">
+                        <include name="*.jar" />
+                    </fileset>
+                    <mapper type="regexp" from="(.*?)_EXP_(.*?).jar" to="\1_\2_${buildId}.jar" />
+                </move>
+
+				<var name="filename.bndrun" unset="true" />
+				<var name="dir.app" unset="true" />
+				<var name="name.project" unset="true" />
+			</sequential>
+		</for>
+		<echo message="bnd.packager finished" />
+
+	</target>
+</project>

@@ -1,5 +1,6 @@
 # ignore eclipse bin folder
 */bin/**
+*/bin_test/**
+*/generated/**
 */exported/**
 */coveragereport/**
-

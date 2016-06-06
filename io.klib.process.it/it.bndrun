@@ -1,0 +1,36 @@
+Test-Cases: io.klib.api.integrationtest.ProcessGuardTest
+
+-runfw: org.apache.felix.framework;version='[5.4.0,5.4.0]'
+-runee: JavaSE-1.8
+
+-runsystemcapabilities: ${native_capability}
+-resolve.effective: active
+
+-runrequires: \
+	osgi.identity;filter:='(&(osgi.identity=io.klib.process.it)(version>=0.1.0.20160603-131519))',\
+	osgi.identity;filter:='(&(osgi.identity=io.klib.process.command)(version>=0.1.0.20160603-131421))',\
+	osgi.identity;filter:='(&(osgi.identity=io.klib.process.impl.sigar)(version>=0.1.0.20160603-131421))',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.gogo.command)(version>=0.16.0))',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.gogo.runtime)(version>=0.16.2))',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.gogo.shell)(version>=0.12.0))',\
+	osgi.identity;filter:='(&(osgi.identity=org.hyperic.sigar)(version>=1.6.4.20160603-121923))',\
+	osgi.identity;filter:='(&(osgi.identity=org.hyperic.sigar.win32.x86_64)(version>=1.6.4.20160603-121923))'
+
+-runbundles: \
+	ch.qos.logback.classic;version='[1.1.3,1.1.4)',\
+	ch.qos.logback.core;version='[1.1.3,1.1.4)',\
+	io.klib.api;version=snapshot,\
+	io.klib.process.command;version=snapshot,\
+	io.klib.process.impl.sigar;version=snapshot,\
+	io.klib.process.it;version=snapshot,\
+	log4j.over.slf4j;version='[1.7.12,1.7.13)',\
+	org.apache.felix.gogo.command;version='[0.16.0,0.16.1)',\
+	org.apache.felix.gogo.runtime;version='[0.16.2,0.16.3)',\
+	org.apache.felix.gogo.shell;version='[0.12.0,0.12.1)',\
+	org.apache.felix.scr;version='[2.0.2,2.0.3)',\
+	org.apache.servicemix.bundles.junit;version='[4.12.0,4.12.1)',\
+	org.hyperic.sigar;version='[1.6.4,1.6.5)',\
+	org.hyperic.sigar.win32.x86_64;version='[1.6.4,1.6.5)',\
+	org.knowhowlab.osgi.testing.assertions;version='[1.2.3,1.2.4)',\
+	org.knowhowlab.osgi.testing.utils;version='[1.2.3,1.2.4)',\
+	slf4j.api;version='[1.7.12,1.7.13)'
