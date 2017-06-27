@@ -35,7 +35,7 @@ import org.hyperic.sigar.SigarLoader;
 
 public class Runner {
 
-    private static HashMap wantedJars = new HashMap();
+    private static HashMap<String, Boolean> wantedJars = new HashMap<String, Boolean>();
     private static final String JAR_EXT = ".jar";
 
     static {
@@ -44,10 +44,11 @@ public class Runner {
     }
 
     private static void printMissingJars() {
-        for (Iterator it = wantedJars.entrySet().iterator();
+        for (Iterator<?> it = wantedJars.entrySet().iterator();
              it.hasNext();)
         {
-            Map.Entry entry = (Map.Entry)it.next();
+            @SuppressWarnings("rawtypes")
+			Map.Entry entry = (Map.Entry)it.next();
             String jar = (String)entry.getKey();
             if (wantedJars.get(jar) == Boolean.FALSE) {
                 System.out.println("Unable to locate: " + jar + JAR_EXT);
@@ -56,10 +57,11 @@ public class Runner {
     }
 
     private static boolean missingJars() {
-        for (Iterator it = wantedJars.entrySet().iterator();
+        for (Iterator<?> it = wantedJars.entrySet().iterator();
              it.hasNext();)
         {
-            Map.Entry entry = (Map.Entry)it.next();
+            @SuppressWarnings("rawtypes")
+			Map.Entry entry = (Map.Entry)it.next();
             String jar = (String)entry.getKey();
             if (wantedJars.get(jar) == Boolean.FALSE) {
                 return true;
@@ -206,7 +208,7 @@ public class Runner {
             }
         }
 
-        Class cmd = null;
+        Class<?> cmd = null;
         String[] packages = {
             "org.hyperic.sigar.cmd.",
             "org.hyperic.sigar.test.",

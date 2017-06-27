@@ -20,7 +20,6 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.Map;
 import org.hyperic.sigar.SigarException;
-import org.hyperic.sigar.ProcExe;
 import org.hyperic.sigar.win32.Win32;
 import org.hyperic.sigar.win32.FileVersion;
 
@@ -84,10 +83,11 @@ public class FileVersionInfo extends SigarCommandBase {
         println("Version info for file '" + exe + "':");
         output("FileVersion", info.getFileVersion());
         output("ProductVersion", info.getProductVersion());
-        for (Iterator it = info.getInfo().entrySet().iterator();
+        for (Iterator<?> it = info.getInfo().entrySet().iterator();
              it.hasNext();)
         {
-            Map.Entry entry = (Map.Entry)it.next();
+            @SuppressWarnings("rawtypes")
+			Map.Entry entry = (Map.Entry)it.next();
             output((String)entry.getKey(), (String)entry.getValue());
         }
     }

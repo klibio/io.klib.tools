@@ -35,7 +35,7 @@ public class Tail {
 
     public boolean follow;
     public int number = 10;
-    public List files = new ArrayList();
+    public List<String> files = new ArrayList<String>();
 
     public void parseArgs(String args[]) throws SigarException {
         for (int i=0; i<args.length; i++) {

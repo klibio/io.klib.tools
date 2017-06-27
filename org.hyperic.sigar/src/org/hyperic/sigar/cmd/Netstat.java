@@ -211,7 +211,7 @@ public class Netstat extends SigarCommandBase {
                 state = conn.getStateString();
             }
 
-            ArrayList items = new ArrayList();
+            ArrayList<String> items = new ArrayList<String>();
             items.add(proto);
             items.add(formatAddress(conn.getType(),
                                     conn.getLocalAddress(),

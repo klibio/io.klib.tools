@@ -50,7 +50,8 @@ public class Ifconfig extends SigarCommandBase {
         return "Network interface information";
     }
 
-    public Collection getCompletions() {
+    @SuppressWarnings( { "rawtypes", "unchecked" })
+	public Collection getCompletions() {
         String[] ifNames;
 
         try {

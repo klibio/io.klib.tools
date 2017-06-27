@@ -50,12 +50,12 @@ public abstract class SigarCommandBase
     protected PrintStream err = System.err;
     protected Sigar sigar;
     protected SigarProxy proxy;
-    protected List output = new ArrayList();
+    protected List<String> output = new ArrayList<String>();
     private CollectionCompleter completer;
     private GetlineCompleter ptqlCompleter;
-    private Collection completions = new ArrayList();
+    private Collection<Object> completions = new ArrayList<Object>();
     private PrintfFormat formatter;
-    private ArrayList printfItems = new ArrayList();
+    private ArrayList<Object[]> printfItems = new ArrayList<Object[]>();
 
     public SigarCommandBase(Shell shell) {
         this.shell = shell;
@@ -103,8 +103,8 @@ public abstract class SigarCommandBase
         }
     }
 
-    public void printf(List items) {
-        printf((Object[])items.toArray(new Object[0]));
+    public void printf(List<?> items) {
+        printf(items.toArray(new Object[0]));
     }
 
     public void println(String line) {
@@ -124,10 +124,10 @@ public abstract class SigarCommandBase
         //no format was specified, just line up the columns
         int[] max = null;
 
-        for (Iterator it=this.printfItems.iterator();
+        for (Iterator<Object[]> it=this.printfItems.iterator();
              it.hasNext();)
         {
-            Object[] items = (Object[])it.next();
+            Object[] items = it.next();
             if (max == null) {
                 max = new int[items.length];
                 Arrays.fill(max, 0);
@@ -148,10 +148,10 @@ public abstract class SigarCommandBase
             }
         }
 
-        for (Iterator it=this.printfItems.iterator();
+        for (Iterator<Object[]> it=this.printfItems.iterator();
              it.hasNext();)
         {
-            printf(format.toString(), (Object[])it.next());
+            printf(format.toString(), it.next());
         }
         this.printfItems.clear();
     }
@@ -189,7 +189,7 @@ public abstract class SigarCommandBase
         }
     }
 
-    public Collection getCompletions() {
+    public Collection<Object> getCompletions() {
         return this.completions;
     }
 

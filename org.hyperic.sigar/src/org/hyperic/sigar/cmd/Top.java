@@ -81,7 +81,7 @@ public class Top {
 
                 String cpuPerc = "?";
 
-                List info;
+                List<String> info;
                 try {
                     info = Ps.getInfo(sigar, pid);
                 } catch (SigarException e) {

@@ -26,7 +26,7 @@ import org.hyperic.sigar.win32.Win32Exception;
 
 public class Win32Service extends SigarCommandBase {
 
-    private static final List COMMANDS = 
+    private static final List<String> COMMANDS = 
         Arrays.asList(new String[] {
             "state",
             "start",
@@ -56,7 +56,8 @@ public class Win32Service extends SigarCommandBase {
         return (args.length == 1) || (args.length == 2);
     }
 
-    public Collection getCompletions() {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public Collection getCompletions() {
         try {
             return Service.getServiceNames();
         } catch (Win32Exception e) {

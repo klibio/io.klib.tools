@@ -63,7 +63,7 @@ public class ProcModuleInfo extends SigarCommandBase {
         println("pid=" + pid);
 
         try {
-            List modules = this.sigar.getProcModules(pid);
+            List<?> modules = this.sigar.getProcModules(pid);
 
             for (int i=0; i<modules.size(); i++) {
                 println(i + "=" + modules.get(i));

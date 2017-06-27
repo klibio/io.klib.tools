@@ -53,11 +53,11 @@ public class ServiceStatus {
         service.close();
     }
 
-    public static void main(String[] args)
+    @SuppressWarnings("unchecked")
+	public static void main(String[] args)
         throws Exception {
 
-        List services;
-        String name;
+        List<String> services;
 
         if (args.length == 0) {
             services = Service.getServiceNames();
@@ -67,7 +67,7 @@ public class ServiceStatus {
         }
 
         for (int i=0; i<services.size(); i++) {
-            printStatus((String)services.get(i));
+            printStatus(services.get(i));
         }
     }
 }

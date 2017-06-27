@@ -80,9 +80,9 @@ public class Ps extends SigarCommandBase {
         }
     }
 
-    public static String join(List info) {
+    public static String join(List<String> info) {
         StringBuffer buf = new StringBuffer();
-        Iterator i = info.iterator();
+        Iterator<String> i = info.iterator();
         boolean hasNext = i.hasNext();
         while (hasNext) {
             buf.append((String)i.next());
@@ -94,14 +94,15 @@ public class Ps extends SigarCommandBase {
         return buf.toString();
     }
 
-    public static List getInfo(SigarProxy sigar, long pid)
+    @SuppressWarnings("deprecation")
+	public static List<String> getInfo(SigarProxy sigar, long pid)
         throws SigarException {
 
         ProcState state = sigar.getProcState(pid);
         ProcTime time = null;
         String unknown = "???";
 
-        List info = new ArrayList();
+        List<String> info = new ArrayList<String>();
         info.add(String.valueOf(pid));
 
         try {

@@ -124,7 +124,7 @@ public class Iostat extends SigarCommandBase {
         DiskUsage disk =
             this.sigar.getDiskUsage(name);
 
-        ArrayList items = new ArrayList();
+        ArrayList<String> items = new ArrayList<String>();
         printHeader();
         items.add(name);
         items.add("-");
@@ -161,7 +161,7 @@ public class Iostat extends SigarCommandBase {
         FileSystemUsage usage =
             this.sigar.getFileSystemUsage(fs.getDirName());
 
-        ArrayList items = new ArrayList();
+        ArrayList<String> items = new ArrayList<String>();
 
         items.add(fs.getDevName());
         items.add(fs.getDirName());

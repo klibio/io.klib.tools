@@ -114,8 +114,8 @@ public class Shell extends ShellBase {
     }
 
     private void registerCommandHandler(String name, String className) throws Exception {
-        Class cls = Class.forName(className);
-        Constructor con = cls.getConstructor(new Class[] { this.getClass() });
+        Class<?> cls = Class.forName(className);
+		Constructor<?> con = cls.getConstructor(new Class[] { this.getClass() });
         registerCommandHandler(name, (ShellCommandHandler)con.newInstance(new Object[] { this }));
     }
 

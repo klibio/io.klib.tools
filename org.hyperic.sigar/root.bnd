@@ -8,6 +8,9 @@ Bundle-Name: ${project.name}
 Bundle-SymbolicName: ${project.name}
 
 Export-Package: \
+    !org.hyperic.sigar.cmd,\
+    !org.hyperic.sigar.test,\
+    !org.hyperic.sigar.win32.test,\
 	org.hyperic.*;version=${bundleVersion}
 
 Import-Package: \

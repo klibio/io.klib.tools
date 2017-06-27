@@ -61,12 +61,13 @@ public class ShowEnv extends SigarCommandBase {
     }
 
     public void output(long pid) throws SigarException {
-        Map env = this.proxy.getProcEnv(pid);
+        Map<?, ?> env = this.proxy.getProcEnv(pid);
 
-        for (Iterator it = env.entrySet().iterator();
+        for (Iterator<?> it = env.entrySet().iterator();
              it.hasNext();)
         {
-            Map.Entry ent = (Map.Entry)it.next();
+            @SuppressWarnings("rawtypes")
+			Map.Entry ent = (Map.Entry)it.next();
 
             println(ent.getKey() + "=" + ent.getValue());
         }

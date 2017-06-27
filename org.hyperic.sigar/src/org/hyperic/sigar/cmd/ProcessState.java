@@ -73,7 +73,6 @@ public class ProcessState {
         Sigar sigar = new Sigar();
 
         ProcState procState = sigar.getProcState(pid);
-        String state;
 
         System.out.println(procState.getName() + ": " +
                            getStateString(procState.getState()));

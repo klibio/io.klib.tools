@@ -94,7 +94,7 @@ public class Df extends SigarCommandBase {
 
     public void output(String[] args) throws SigarException {
         this.opt_i = false;
-        ArrayList sys = new ArrayList();
+        ArrayList<FileSystem> sys = new ArrayList<FileSystem>();
 
         if (args.length > 0) {
             FileSystemMap mounts = this.proxy.getFileSystemMap();
@@ -174,7 +174,7 @@ public class Df extends SigarCommandBase {
             usePct = pct + "%";
         }
         
-        ArrayList items = new ArrayList();
+        ArrayList<String> items = new ArrayList<String>();
 
         items.add(fs.getDevName());
         items.add(formatSize(total));

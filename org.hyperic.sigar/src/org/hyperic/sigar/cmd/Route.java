@@ -72,7 +72,7 @@ public class Route extends SigarCommandBase {
         for (int i=0; i<routes.length; i++) {
             NetRoute route = routes[i];
 
-            ArrayList items = new ArrayList();
+            ArrayList<String> items = new ArrayList<String>();
             items.add(route.getDestination());
             items.add(route.getGateway());
             items.add(route.getMask());
