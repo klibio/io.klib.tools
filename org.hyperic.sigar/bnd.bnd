@@ -1,0 +1,10 @@
+-sub: *.bnd
+bundleVersion=1.6.4
+
+Bundle-Description: SIGAR - System Information Gatherer And Reporter
+Bundle-Version: ${bundleVersion}.${tstamp;yyyyMMdd-HHmmss}
+Bundle-Vendor: klib.io
+
+-buildpath: \
+    log4j.over.slf4j;version=1.7,\
+    lib/sigar.jar;version=file

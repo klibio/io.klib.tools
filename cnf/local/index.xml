@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1465216014039" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1498409105000" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="biz.aQute.launcher"/>
@@ -1020,25 +1020,6 @@
   </resource>
   <resource>
     <capability namespace="osgi.identity">
-      <attribute name="osgi.identity" value="org.hyperic.sigar.linux.ppc64"/>
-      <attribute name="type" value="osgi.fragment"/>
-      <attribute name="version" type="Version" value="1.6.4.20160606-120145"/>
-    </capability>
-    <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="15e80afaa5f2af21f5e9eb2e0886a0004cccabef00772bb9ad03f679e92e5525"/>
-      <attribute name="url" value="org.hyperic.sigar.linux.ppc64/org.hyperic.sigar.linux.ppc64-1.6.4.jar"/>
-      <attribute name="size" type="Long" value="92667"/>
-      <attribute name="mime" value="application/vnd.osgi.bundle"/>
-    </capability>
-    <requirement namespace="osgi.wiring.host">
-      <directive name="filter" value="(&amp;(osgi.wiring.host=org.hyperic.sigar)(bundle-version&gt;=0.0.0))"/>
-    </requirement>
-    <requirement namespace="osgi.native">
-      <directive name="filter" value="(&amp;(osgi.native.osname~=linux)(osgi.native.processor~=ppc64))"/>
-    </requirement>
-  </resource>
-  <resource>
-    <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.hyperic.sigar.linux.ppc"/>
       <attribute name="type" value="osgi.fragment"/>
       <attribute name="version" type="Version" value="1.6.4.20160606-120145"/>
@@ -1054,6 +1035,25 @@
     </requirement>
     <requirement namespace="osgi.native">
       <directive name="filter" value="(&amp;(osgi.native.osname~=linux)(osgi.native.processor~=ppc))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.hyperic.sigar.linux.ppc64"/>
+      <attribute name="type" value="osgi.fragment"/>
+      <attribute name="version" type="Version" value="1.6.4.20160606-120145"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="15e80afaa5f2af21f5e9eb2e0886a0004cccabef00772bb9ad03f679e92e5525"/>
+      <attribute name="url" value="org.hyperic.sigar.linux.ppc64/org.hyperic.sigar.linux.ppc64-1.6.4.jar"/>
+      <attribute name="size" type="Long" value="92667"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <requirement namespace="osgi.wiring.host">
+      <directive name="filter" value="(&amp;(osgi.wiring.host=org.hyperic.sigar)(bundle-version&gt;=0.0.0))"/>
+    </requirement>
+    <requirement namespace="osgi.native">
+      <directive name="filter" value="(&amp;(osgi.native.osname~=linux)(osgi.native.processor~=ppc64))"/>
     </requirement>
   </resource>
   <resource>

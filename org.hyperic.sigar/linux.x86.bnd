@@ -1,0 +1,5 @@
+Bundle-Name: ${project}.linux.x86
+
+Fragment-Host: org.hyperic.sigar
+Bundle-NativeCode: libsigar-x86-linux.so; osname=Linux; processor=x86
+Include-Resource: lib/libsigar-x86-linux.so

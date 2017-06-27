@@ -1,0 +1,19 @@
+-includeresource: \
+    @lib/sigar.jar
+
+-fixupmessages: \
+  "Eclipse: The Bundle Symbolic org.hyperic.sigar is a sub-bundle root.bnd but uses the project name";is:=ignore
+
+Bundle-Name: ${project.name}
+Bundle-SymbolicName: ${project.name}
+
+Export-Package: \
+	org.hyperic.sigar.*;version=${bundleVersion}
+
+Import-Package: \
+	junit.framework;resolution:=optional,\
+	junit.textui;resolution:=optional,\
+	org.apache.tools.ant;resolution:=optional,\
+	org.apache.tools.ant.taskdefs;resolution:=optional,\
+	sun.misc;resolution:=optional,\
+	*
