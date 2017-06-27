@@ -8,7 +8,7 @@ Bundle-Name: ${project.name}
 Bundle-SymbolicName: ${project.name}
 
 Export-Package: \
-	org.hyperic.sigar.*;version=${bundleVersion}
+	org.hyperic.*;version=${bundleVersion}
 
 Import-Package: \
 	junit.framework;resolution:=optional,\
