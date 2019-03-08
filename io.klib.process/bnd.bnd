@@ -9,7 +9,7 @@
 	osgi.enroute.base.api
 
 -testpath: \
-	org.apache.servicemix.bundles.junit; version=4.12
+	org.apache.servicemix.bundles.junit; version=4.12.0.1
 
 javac.source: 1.8
 javac.target: 1.8

@@ -1,6 +1,6 @@
 -buildpath: \
 	osgi.core;version=6.0,\
-	org.apache.servicemix.bundles.junit;version=4.12,\
+	org.apache.servicemix.bundles.junit;version=4.12.0.1,\
 	org.knowhowlab.osgi.testing.utils;version=1.2,\
 	org.knowhowlab.osgi.testing.assertions;version=1.2,\
 	io.klib.api;version=latest
