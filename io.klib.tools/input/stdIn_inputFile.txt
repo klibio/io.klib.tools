@@ -1,0 +1,29 @@
+# printing std-in input to std-out
+stringToPrintOnStdOut
+
+# printing std-in input to std-err
+err stringToPrintOnStdErr
+
+# output OS environment variables
+debugOS
+
+# output Java system properties
+debugJava
+
+# output OS environment variables and Java system properties
+debug
+
+# starting a thread with name and maximum load (by setting sleep timer to 0)
+thread nr1 0
+
+# let the process sleep for 5000 ms
+wait 5000
+
+# starting a thread with name and maximum load (by setting sleep timer to 0)
+thread nr2 0
+
+# let the process sleep for 5000 ms
+wait 5000
+
+# end the execution with errorcode 1
+errfail

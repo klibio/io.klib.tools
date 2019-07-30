@@ -1,0 +1,22 @@
+-fixupmessages: \
+  "Eclipse: The Bundle Symbolic org.hyperic.sigar is a sub-bundle root.bnd but uses the project name";is:=ignore,\
+  "Host org.hyperic.sigar= for this fragment cannot be found on the classpath";is:=ignore
+
+-includeresource: \
+    @lib/sigar.jar
+
+Bundle-SymbolicName: ${project.name}
+
+Export-Package: \
+    !org.hyperic.sigar.cmd,\
+    !org.hyperic.sigar.test,\
+    !org.hyperic.sigar.win32.test,\
+	org.hyperic.*;version=${bundleVersion}
+
+Import-Package: \
+	junit.framework;resolution:=optional,\
+	junit.textui;resolution:=optional,\
+	org.apache.tools.ant;resolution:=optional,\
+	org.apache.tools.ant.taskdefs;resolution:=optional,\
+	sun.misc;resolution:=optional,\
+	*

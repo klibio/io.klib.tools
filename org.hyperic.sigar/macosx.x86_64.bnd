@@ -1,0 +1,6 @@
+-includeresource: lib/libsigar-universal64-macosx.dylib
+
+Bundle-Name: ${project.name}.macosx.x86_64
+
+Fragment-Host: org.hyperic.sigar
+Bundle-NativeCode: libsigar-universal64-macosx.dylib; osname=macosx; processor=x86-64

@@ -1,0 +1,6 @@
+-includeresource: lib/sigar-amd64-winnt.dll
+
+Bundle-Name: ${project.name}.win32.x86_64
+
+Fragment-Host: org.hyperic.sigar
+Bundle-NativeCode: sigar-amd64-winnt.dll; osname=win32; processor=x86-64

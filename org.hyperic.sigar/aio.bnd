@@ -1,0 +1,40 @@
+-fixupmessages: \
+  "Host org.hyperic.sigar= for this fragment cannot be found on the classpath";is:=ignore
+
+-includeresource: \
+    @lib/sigar.jar,\
+    lib/libsigar-arm-linux.so,\
+    lib/libsigar-x86-linux.so,\
+    lib/libsigar-amd64-linux.so,\
+    lib/libsigar-universal-macosx.dylib,\
+    lib/libsigar-universal64-macosx.dylib,\
+    lib/sigar-x86-winnt.dll,\
+    lib/sigar-amd64-winnt.dll
+
+Bundle-Name: ${project.name}.aio
+Bundle-SymbolicName: ${project.name}.aio
+
+Export-Package: \
+    !org.hyperic.sigar.cmd,\
+    !org.hyperic.sigar.test,\
+    !org.hyperic.sigar.win32.test,\
+    org.hyperic.*;version=${bundleVersion}
+
+Import-Package: \
+    junit.framework;resolution:=optional,\
+    junit.textui;resolution:=optional,\
+    org.apache.tools.ant;resolution:=optional,\
+    org.apache.tools.ant.taskdefs;resolution:=optional,\
+    sun.misc;resolution:=optional,\
+    *
+
+Bundle-NativeCode: \
+    libsigar-arm-linux.so;osname=linux;processor=arm,\
+    libsigar-x86-linux.so;osname=linux;processor=x86,\
+    libsigar-amd64-linux.so;osname=linux;processor=x86-64,\
+    libsigar-universal64-macosx.dylib;osname=macosx; processor=x86,\
+    libsigar-universal64-macosx.dylib;osname=macosx; processor=x86-64,\
+    sigar-x86-winnt.dll;osname=win32;processor=x86,\
+    sigar-amd64-winnt.dll;osname=win32;processor=x86-64
+
+    

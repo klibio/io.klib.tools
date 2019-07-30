@@ -1,0 +1,53 @@
+releaserepo:            ${workspace}/dist/bundles
+mavencentral:           https://repo.maven.apache.org/maven2
+
+-plugin:\
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        name="Maven Central";\
+        releaseUrl="${mavencentral}";\
+        index="${.}/central.mvn";\
+        readOnly=true,\
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        name="OSGi Snapshots";\
+        releaseUrl="https://oss.sonatype.org/content/repositories/osgi-releases/";\
+        snapshotUrl="https://oss.sonatype.org/content/repositories/osgi-snapshots/";\
+        index="${.}/osgi-snapshots.mvn";\
+        readOnly=true,\
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        name="Local Maven";\
+        noupdateOnRelease=true,\
+    aQute.bnd.deployer.repository.LocalIndexedRepo; \
+        name = "Local indexed"; \
+        pretty = true; \
+	    local = ${build}/local,\
+
+#    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+#        name="Baseline";\
+#        releaseUrl="${mavencentral}";\
+#        index="${.}/baseline.mvn";\
+#        readOnly=true
+#    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+#        name="Release";\
+#        releaseUrl="${fileuri;${releaserepo}}";\
+#        snapshotUrl="${fileuri;${releaserepo}}";\
+#        noupdateOnRelease=true,\
+#    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+#        name="OSSRH";\
+#        releaseUrl="https://oss.sonatype.org/service/local/staging/deploy/maven2/";\
+#        snapshotUrl="https://oss.sonatype.org/content/repositories/snapshots/";\
+#        noupdateOnRelease=true,\
+#    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+#        name="JFrog";\
+#        releaseUrl="https://bndtools.jfrog.io/bndtools/libs-release-local/";\
+#        snapshotUrl="https://bndtools.jfrog.io/bndtools/libs-snapshot-local/";\
+#        noupdateOnRelease=true,\
+
+-buildrepo: "Local Maven"
+#-releaserepo: Release
+#-releaserepo.ossrh: ${if;(&(|(env.TRAVIS_BRANCH=master)(env.TRAVIS_BRANCH=next))(env.TRAVIS_PULL_REQUEST=false)(env.REPOSITORY_USERNAME=*));OSSRH}
+#-releaserepo.jfrog: ${if;(&(|(env.BUILD_SOURCEBRANCHNAME=master)(env.BUILD_SOURCEBRANCHNAME=next))(!(env.BUILD_REASON=PullRequest))(env.JFROG_USERNAME=*)(!(env.JFROG_USERNAME=$*)));JFrog}
+
+-connection-settings.ossrh: ${if;${-releaserepo.ossrh};${.}/ossrh-settings.xml}
+-connection-settings.jfrog: ${if;${-releaserepo.jfrog};${.}/jfrog-settings.xml}
+
+#-baselinerepo: Baseline

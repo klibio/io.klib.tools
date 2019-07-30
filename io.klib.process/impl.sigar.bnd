@@ -1,0 +1,4 @@
+
+Bundle-Version: 0.1.0.${tstamp;yyyyMMdd-HHmmss}
+Private-Package: io.klib.process.sigar
+-dsannotations: *
