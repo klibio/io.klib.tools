@@ -1,5 +1,6 @@
 package io.klib.api.integrationtest;
 
+import java.io.File;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.regex.Pattern;
 import junit.framework.TestCase;
 
 import org.knowhowlab.osgi.testing.utils.ServiceUtils;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
@@ -32,11 +34,24 @@ public class ProcessGuardTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
+        String userprofile = System.getenv("USERPROFILE");
+        /*System.out.println(userprofile);
+        String sysdrive = System.getenv("SYSTEMDrive");
+        String sysroot = System.getenv("SYSTEMRoot");
+        String temp = System.getenv("TEMP");
+        String ComSpec = System.getenv("ComSpec");*/
         ProcessBuilder pb = new ProcessBuilder();
+        //pb.directory(new File("C:\\Windows\\system32\\"));
+        /*pb.environment().put("USERPROFILE", userprofile);
+        pb.environment().put("SYSTEMDrive", sysdrive);
+        pb.environment().put("SYSTEMRoot", sysroot);
+        pb.environment().put("TEMP", temp);
+        pb.environment().put("ComSpec", ComSpec);*/
         String os = System.getProperty("os.name");
         switch (os) {
-		case "win32":
-	        pb.command("cmd.exe", "/K cmd.exe");
+		case "Windows 10":
+	        pb.command("cmd.exe", "/K", "start", "/w",
+	        	    "cmd", "/c", "dir & pause");
 			break;
 
 		default:
