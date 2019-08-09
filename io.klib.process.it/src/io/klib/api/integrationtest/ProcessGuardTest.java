@@ -1,5 +1,11 @@
 package io.klib.api.integrationtest;
 
+import static org.knowhowlab.osgi.testing.assertions.BundleAssert.assertBundleState;
+import static org.knowhowlab.osgi.testing.assertions.OSGiAssert.getBundleContext;
+import static org.knowhowlab.osgi.testing.assertions.ServiceAssert.assertServiceAvailable;
+import static org.knowhowlab.osgi.testing.assertions.ServiceAssert.assertServiceUnavailable;
+import static org.knowhowlab.osgi.testing.utils.BundleUtils.findBundle;
+
 import java.io.File;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
@@ -8,22 +14,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import junit.framework.TestCase;
-
 import org.knowhowlab.osgi.testing.utils.ServiceUtils;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 
 import io.klib.api.ProcessGuard;
-
-import static org.knowhowlab.osgi.testing.assertions.BundleAssert.assertBundleState;
-import static org.knowhowlab.osgi.testing.assertions.OSGiAssert.getBundleContext;
-import static org.knowhowlab.osgi.testing.assertions.ServiceAssert.assertServiceAvailable;
-import static org.knowhowlab.osgi.testing.assertions.ServiceAssert.assertServiceUnavailable;
-
-import static org.knowhowlab.osgi.testing.utils.BundleUtils.findBundle;
+import junit.framework.TestCase;
 
 public class ProcessGuardTest extends TestCase {
 
@@ -35,23 +32,23 @@ public class ProcessGuardTest extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
         String userprofile = System.getenv("USERPROFILE");
-        /*System.out.println(userprofile);
         String sysdrive = System.getenv("SYSTEMDrive");
         String sysroot = System.getenv("SYSTEMRoot");
         String temp = System.getenv("TEMP");
-        String ComSpec = System.getenv("ComSpec");*/
+        String ComSpec = System.getenv("ComSpec");
+        String path = System.getenv("PATH");
         ProcessBuilder pb = new ProcessBuilder();
-        //pb.directory(new File("C:\\Windows\\system32\\"));
-        /*pb.environment().put("USERPROFILE", userprofile);
+        pb.directory(new File("C:\\Windows\\system32\\"));
+        pb.environment().put("USERPROFILE", userprofile);
         pb.environment().put("SYSTEMDrive", sysdrive);
         pb.environment().put("SYSTEMRoot", sysroot);
         pb.environment().put("TEMP", temp);
-        pb.environment().put("ComSpec", ComSpec);*/
+        pb.environment().put("ComSpec", ComSpec);
+        pb.environment().put("PATH", path);
         String os = System.getProperty("os.name");
         switch (os) {
 		case "Windows 10":
-	        pb.command("cmd.exe", "/K", "start", "/w",
-	        	    "cmd", "/c", "dir & pause");
+	        pb.command("cmd.exe", "/K cmd.exe");
 			break;
 
 		default:
