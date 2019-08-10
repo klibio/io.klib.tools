@@ -4,14 +4,15 @@ branches:
 
 image: Ubuntu
 
-language: java
+#language: java
 
 
-jdk: 
-  - oraclejdk8
+#jdk: 
+#  - oraclejdk8
 
-install: ./gradlew --version
+#install: ./gradlew --version
 
 before_build:
   - echo test
-build_script: ./gradlew --continue ## + tests
+build_script:
+  - gradlew --continue ## + tests
