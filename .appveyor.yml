@@ -10,7 +10,7 @@ image: Ubuntu
 #jdk: 
 #  - oraclejdk8
 
-#install: ./gradlew --version
+install: ./gradlew --version
 
 before_build:
   - echo test
