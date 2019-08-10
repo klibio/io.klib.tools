@@ -7,4 +7,4 @@ jdk:
 
 install: ./gradlew --version
 
-script: ./gradlew --continue ## + tests
+build_script: ./gradlew --continue ## + tests
