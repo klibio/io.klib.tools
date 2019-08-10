@@ -15,4 +15,4 @@ install: ./gradlew --version
 before_build:
   - echo test
 build_script:
-  - gradlew --continue ## + tests
+  - ./gradlew --continue ## + tests
