@@ -1,10 +1,17 @@
-sudo: false
+branches:
+  only:
+    - issue10
+
+image: Ubuntu
 
 language: java
 
-jdk:
+
+jdk: 
   - oraclejdk8
 
 install: ./gradlew --version
 
+before_build:
+  - echo test
 build_script: ./gradlew --continue ## + tests
