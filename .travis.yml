@@ -2,6 +2,6 @@ os: windows
 
 language: bash
 
-install: ./gradlew --version
+install: choco install jdk8 --x86 && ./gradlew --version
 
 script: ./gradlew --continue
