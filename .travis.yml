@@ -9,3 +9,5 @@ install:
   - ./gradlew --version
 
 script: ./gradlew --continue
+
+after_success: exit
