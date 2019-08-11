@@ -1,5 +1,7 @@
 os: windows
 
+language: bash
+
 install: ./gradlew --version
 
 script: ./gradlew --continue
