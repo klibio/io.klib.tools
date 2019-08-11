@@ -10,4 +10,4 @@ install:
 
 script: ./gradlew --continue
 
-after_success: exit
+after_success: ./gradlew --stop
