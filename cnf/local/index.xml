@@ -1,270 +1,59 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="Local" increment="1564403551000">
+<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="Local indexed" increment="1565127982075">
   <resource>
     <capability namespace="osgi.identity">
-      <attribute name="license" value="http://www.eclipse.org/legal/epl-v10.html, http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"/>
-      <attribute name="osgi.identity" value="ch.qos.logback.core"/>
+      <attribute name="license" value="http://www.apache.org/licenses/LICENSE-2.0"/>
+      <attribute name="osgi.identity" value="org.knowhowlab.osgi.testing.assertions"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="documentation" value="http://www.qos.ch"/>
+      <attribute name="version" value="1.2.3.SNAPSHOT" type="Version"/>
+      <attribute name="documentation" value="http://knowhowlab.org"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
-      <attribute name="bundle-version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.bundle" value="ch.qos.logback.core"/>
+      <attribute name="bundle-version" value="1.2.3.SNAPSHOT" type="Version"/>
+      <attribute name="osgi.wiring.bundle" value="org.knowhowlab.osgi.testing.assertions"/>
     </capability>
     <capability namespace="osgi.wiring.host">
-      <attribute name="bundle-version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.host" value="ch.qos.logback.core"/>
+      <attribute name="bundle-version" value="1.2.3.SNAPSHOT" type="Version"/>
+      <attribute name="osgi.wiring.host" value="org.knowhowlab.osgi.testing.assertions"/>
     </capability>
     <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.encoder,ch.qos.logback.core.filter,ch.qos.logback.core.helpers,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core"/>
+      <directive name="uses" value="org.osgi.framework,org.osgi.service.packageadmin,org.knowhowlab.osgi.testing.utils,org.junit"/>
+      <attribute name="version" value="1.1.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="org.knowhowlab.osgi.testing.assertions"/>
     </capability>
     <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.spi"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.boolex"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.db.dialect,ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.sql,org.xml.sax"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.db"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.spi"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.db.dialect"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.spi"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.encoder"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.boolex,ch.qos.logback.core.spi"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.filter"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.helpers"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.spi,ch.qos.logback.core.util"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.hook"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.pattern"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.html"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,org.xml.sax"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.joran.spi,ch.qos.logback.core.joran.util,ch.qos.logback.core.spi,ch.qos.logback.core.util,org.xml.sax"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.action"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,org.codehaus.commons.compiler,org.xml.sax"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.conditional"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.status,org.xml.sax,org.xml.sax.helpers"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.event"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.xml.stream,javax.xml.stream.events"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.event.stax"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.node"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.event,ch.qos.logback.core.spi,ch.qos.logback.core.status,org.xml.sax"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.spi"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.util"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.util"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.layout"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.boolex,ch.qos.logback.core.helpers,ch.qos.logback.core.net.ssl,ch.qos.logback.core.pattern,ch.qos.logback.core.sift,ch.qos.logback.core.spi,ch.qos.logback.core.util,javax.mail,javax.naming,javax.net"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.net"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.net.ssl,ch.qos.logback.core.spi,javax.net"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.net.server"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.net,javax.net.ssl"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.net.ssl"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.encoder,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.pattern"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern.color"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.pattern,ch.qos.logback.core.pattern.util,ch.qos.logback.core.spi"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern.parser"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern.util"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.property"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.read"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.status"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.recovery"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.rolling.helper,ch.qos.logback.core.spi"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.rolling"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.pattern,ch.qos.logback.core.rolling,ch.qos.logback.core.spi"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.rolling.helper"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.util"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.sift"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.filter,ch.qos.logback.core.helpers,ch.qos.logback.core.status"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.spi"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,javax.servlet,javax.servlet.http"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.status"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core.spi"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.subst"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.rolling,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
-      <attribute name="version" value="1.1.3" type="Version"/>
-      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.util"/>
+      <directive name="uses" value="org.knowhowlab.osgi.testing.assertions,org.knowhowlab.osgi.testing.utils.cmpn,org.osgi.framework,org.osgi.service.cm,org.junit,org.osgi.service.event"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="org.knowhowlab.osgi.testing.assertions.cmpn"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="size" value="490920" type="Long"/>
-      <attribute name="url" value="ch.qos.logback.core/ch.qos.logback.core-1.1.3.jar"/>
+      <attribute name="size" value="19197" type="Long"/>
+      <attribute name="url" value="org.knowhowlab.osgi.testing.assertions/org.knowhowlab.osgi.testing.assertions-1.2.3.jar"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
-      <attribute name="osgi.content" value="470D3868A206A75EDE4491F10D604D394A8815A963B361529995AFAFC933FE8C"/>
+      <attribute name="osgi.content" value="BB781D8FB47615711CA5DC8C91C9ACBD706B8D9BA47486CC2159BFE29D32E87B"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.mail))"/>
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.junit))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.knowhowlab.osgi.testing.utils)(&amp;(version&gt;=1.2.0)(!(version&gt;=2.0.0))))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.knowhowlab.osgi.testing.utils.cmpn)(&amp;(version&gt;=1.0.0)(!(version&gt;=2.0.0))))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(&amp;(version&gt;=1.5.0)(!(version&gt;=2.0.0))))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.cm)(&amp;(version&gt;=1.3.0)(!(version&gt;=2.0.0))))"/>
       <directive name="resolution" value="optional"/>
     </requirement>
     <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.mail.internet))"/>
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.event)(&amp;(version&gt;=1.2.0)(!(version&gt;=2.0.0))))"/>
       <directive name="resolution" value="optional"/>
     </requirement>
     <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.naming))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.net))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.net.ssl))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet.http))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.sql))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.xml.namespace))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.xml.parsers))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.xml.stream))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.xml.stream.events))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.xml.sax))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.xml.sax.helpers))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.codehaus.janino))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.codehaus.commons.compiler))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.fusesource.jansi)(&amp;(version&gt;=1.9.0)(!(version&gt;=2.0.0))))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.ee">
-      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.packageadmin)(&amp;(version&gt;=1.2.0)(!(version&gt;=2.0.0))))"/>
     </requirement>
   </resource>
   <resource>
@@ -365,81 +154,36 @@
   </resource>
   <resource>
     <capability namespace="osgi.identity">
-      <attribute name="osgi.identity" value="slf4j.api"/>
-      <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" value="1.7.12" type="Version"/>
-    </capability>
-    <capability namespace="osgi.wiring.bundle">
-      <attribute name="bundle-version" value="1.7.12" type="Version"/>
-      <attribute name="osgi.wiring.bundle" value="slf4j.api"/>
-    </capability>
-    <capability namespace="osgi.wiring.host">
-      <attribute name="bundle-version" value="1.7.12" type="Version"/>
-      <attribute name="osgi.wiring.host" value="slf4j.api"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="version" value="1.7.12" type="Version"/>
-      <attribute name="osgi.wiring.package" value="org.slf4j"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="version" value="1.7.12" type="Version"/>
-      <attribute name="osgi.wiring.package" value="org.slf4j.spi"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="version" value="1.7.12" type="Version"/>
-      <attribute name="osgi.wiring.package" value="org.slf4j.helpers"/>
-    </capability>
-    <capability namespace="osgi.content">
-      <attribute name="size" value="37155" type="Long"/>
-      <attribute name="url" value="slf4j.api/slf4j.api-1.7.12.jar"/>
-      <attribute name="mime" value="application/vnd.osgi.bundle"/>
-      <attribute name="osgi.content" value="6547A93A6C5C52E65B9E4360C8954144D9FBBEE2048C5565892FDF4627AFFC77"/>
-    </capability>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j.impl)(version&gt;=1.6.0))"/>
-    </requirement>
-  </resource>
-  <resource>
-    <capability namespace="osgi.identity">
       <attribute name="license" value="http://www.apache.org/licenses/LICENSE-2.0"/>
-      <attribute name="osgi.identity" value="org.knowhowlab.osgi.testing.assertions"/>
+      <attribute name="osgi.identity" value="org.knowhowlab.osgi.testing.utils"/>
       <attribute name="type" value="osgi.bundle"/>
       <attribute name="version" value="1.2.3.SNAPSHOT" type="Version"/>
       <attribute name="documentation" value="http://knowhowlab.org"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="bundle-version" value="1.2.3.SNAPSHOT" type="Version"/>
-      <attribute name="osgi.wiring.bundle" value="org.knowhowlab.osgi.testing.assertions"/>
+      <attribute name="osgi.wiring.bundle" value="org.knowhowlab.osgi.testing.utils"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="bundle-version" value="1.2.3.SNAPSHOT" type="Version"/>
-      <attribute name="osgi.wiring.host" value="org.knowhowlab.osgi.testing.assertions"/>
+      <attribute name="osgi.wiring.host" value="org.knowhowlab.osgi.testing.utils"/>
     </capability>
     <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="org.osgi.framework,org.osgi.service.packageadmin,org.knowhowlab.osgi.testing.utils,org.junit"/>
-      <attribute name="version" value="1.1.0" type="Version"/>
-      <attribute name="osgi.wiring.package" value="org.knowhowlab.osgi.testing.assertions"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="org.knowhowlab.osgi.testing.assertions,org.knowhowlab.osgi.testing.utils.cmpn,org.osgi.framework,org.osgi.service.cm,org.junit,org.osgi.service.event"/>
+      <directive name="uses" value="org.osgi.service.cm,org.osgi.framework,org.knowhowlab.osgi.testing.utils,org.osgi.service.event"/>
       <attribute name="version" value="1.0.0" type="Version"/>
-      <attribute name="osgi.wiring.package" value="org.knowhowlab.osgi.testing.assertions.cmpn"/>
+      <attribute name="osgi.wiring.package" value="org.knowhowlab.osgi.testing.utils.cmpn"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="org.osgi.framework,org.osgi.util.tracker,org.osgi.service.packageadmin"/>
+      <attribute name="version" value="1.2.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="org.knowhowlab.osgi.testing.utils"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="size" value="19197" type="Long"/>
-      <attribute name="url" value="org.knowhowlab.osgi.testing.assertions/org.knowhowlab.osgi.testing.assertions-1.2.3.jar"/>
+      <attribute name="size" value="50947" type="Long"/>
+      <attribute name="url" value="org.knowhowlab.osgi.testing.utils/org.knowhowlab.osgi.testing.utils-1.2.3.jar"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
-      <attribute name="osgi.content" value="BB781D8FB47615711CA5DC8C91C9ACBD706B8D9BA47486CC2159BFE29D32E87B"/>
+      <attribute name="osgi.content" value="6612922FCD00C6D72EEF883D1AC890A33717A9BCE671308145AE00F44C51E31F"/>
     </capability>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.junit))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.knowhowlab.osgi.testing.utils)(&amp;(version&gt;=1.2.0)(!(version&gt;=2.0.0))))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.knowhowlab.osgi.testing.utils.cmpn)(&amp;(version&gt;=1.0.0)(!(version&gt;=2.0.0))))"/>
-    </requirement>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(&amp;(version&gt;=1.5.0)(!(version&gt;=2.0.0))))"/>
     </requirement>
@@ -453,6 +197,9 @@
     </requirement>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.packageadmin)(&amp;(version&gt;=1.2.0)(!(version&gt;=2.0.0))))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(&amp;(version&gt;=1.4.0)(!(version&gt;=2.0.0))))"/>
     </requirement>
   </resource>
   <resource>
@@ -504,52 +251,38 @@
   </resource>
   <resource>
     <capability namespace="osgi.identity">
-      <attribute name="license" value="http://www.apache.org/licenses/LICENSE-2.0"/>
-      <attribute name="osgi.identity" value="org.knowhowlab.osgi.testing.utils"/>
+      <attribute name="osgi.identity" value="slf4j.api"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" value="1.2.3.SNAPSHOT" type="Version"/>
-      <attribute name="documentation" value="http://knowhowlab.org"/>
+      <attribute name="version" value="1.7.12" type="Version"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
-      <attribute name="bundle-version" value="1.2.3.SNAPSHOT" type="Version"/>
-      <attribute name="osgi.wiring.bundle" value="org.knowhowlab.osgi.testing.utils"/>
+      <attribute name="bundle-version" value="1.7.12" type="Version"/>
+      <attribute name="osgi.wiring.bundle" value="slf4j.api"/>
     </capability>
     <capability namespace="osgi.wiring.host">
-      <attribute name="bundle-version" value="1.2.3.SNAPSHOT" type="Version"/>
-      <attribute name="osgi.wiring.host" value="org.knowhowlab.osgi.testing.utils"/>
+      <attribute name="bundle-version" value="1.7.12" type="Version"/>
+      <attribute name="osgi.wiring.host" value="slf4j.api"/>
     </capability>
     <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="org.osgi.service.cm,org.osgi.framework,org.knowhowlab.osgi.testing.utils,org.osgi.service.event"/>
-      <attribute name="version" value="1.0.0" type="Version"/>
-      <attribute name="osgi.wiring.package" value="org.knowhowlab.osgi.testing.utils.cmpn"/>
+      <attribute name="version" value="1.7.12" type="Version"/>
+      <attribute name="osgi.wiring.package" value="org.slf4j"/>
     </capability>
     <capability namespace="osgi.wiring.package">
-      <directive name="uses" value="org.osgi.framework,org.osgi.util.tracker,org.osgi.service.packageadmin"/>
-      <attribute name="version" value="1.2.0" type="Version"/>
-      <attribute name="osgi.wiring.package" value="org.knowhowlab.osgi.testing.utils"/>
+      <attribute name="version" value="1.7.12" type="Version"/>
+      <attribute name="osgi.wiring.package" value="org.slf4j.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="version" value="1.7.12" type="Version"/>
+      <attribute name="osgi.wiring.package" value="org.slf4j.helpers"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="size" value="50947" type="Long"/>
-      <attribute name="url" value="org.knowhowlab.osgi.testing.utils/org.knowhowlab.osgi.testing.utils-1.2.3.jar"/>
+      <attribute name="size" value="37155" type="Long"/>
+      <attribute name="url" value="slf4j.api/slf4j.api-1.7.12.jar"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
-      <attribute name="osgi.content" value="6612922FCD00C6D72EEF883D1AC890A33717A9BCE671308145AE00F44C51E31F"/>
+      <attribute name="osgi.content" value="6547A93A6C5C52E65B9E4360C8954144D9FBBEE2048C5565892FDF4627AFFC77"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(&amp;(version&gt;=1.5.0)(!(version&gt;=2.0.0))))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.cm)(&amp;(version&gt;=1.3.0)(!(version&gt;=2.0.0))))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.event)(&amp;(version&gt;=1.2.0)(!(version&gt;=2.0.0))))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.packageadmin)(&amp;(version&gt;=1.2.0)(!(version&gt;=2.0.0))))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(&amp;(version&gt;=1.4.0)(!(version&gt;=2.0.0))))"/>
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j.impl)(version&gt;=1.6.0))"/>
     </requirement>
   </resource>
   <resource>
@@ -860,6 +593,273 @@
     </requirement>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.rolling.helper)(&amp;(version&gt;=1.1.0)(!(version&gt;=2.0.0))))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="license" value="http://www.eclipse.org/legal/epl-v10.html, http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"/>
+      <attribute name="osgi.identity" value="ch.qos.logback.core"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="documentation" value="http://www.qos.ch"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="bundle-version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.bundle" value="ch.qos.logback.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="bundle-version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.host" value="ch.qos.logback.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.encoder,ch.qos.logback.core.filter,ch.qos.logback.core.helpers,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.spi"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.boolex"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.db.dialect,ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.sql,org.xml.sax"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.spi"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.db.dialect"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.spi"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.encoder"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.boolex,ch.qos.logback.core.spi"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.filter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.helpers"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.spi,ch.qos.logback.core.util"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.hook"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.pattern"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.html"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,org.xml.sax"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.joran.spi,ch.qos.logback.core.joran.util,ch.qos.logback.core.spi,ch.qos.logback.core.util,org.xml.sax"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.action"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,org.codehaus.commons.compiler,org.xml.sax"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.conditional"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.status,org.xml.sax,org.xml.sax.helpers"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.event"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.xml.stream,javax.xml.stream.events"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.event.stax"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.node"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.event,ch.qos.logback.core.spi,ch.qos.logback.core.status,org.xml.sax"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.util"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.layout"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.boolex,ch.qos.logback.core.helpers,ch.qos.logback.core.net.ssl,ch.qos.logback.core.pattern,ch.qos.logback.core.sift,ch.qos.logback.core.spi,ch.qos.logback.core.util,javax.mail,javax.naming,javax.net"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.net"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.net.ssl,ch.qos.logback.core.spi,javax.net"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.net.server"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.net,javax.net.ssl"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.net.ssl"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.encoder,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.pattern"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern.color"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.pattern,ch.qos.logback.core.pattern.util,ch.qos.logback.core.spi"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern.parser"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.property"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.read"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.status"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.recovery"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.rolling.helper,ch.qos.logback.core.spi"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.rolling"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.pattern,ch.qos.logback.core.rolling,ch.qos.logback.core.spi"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.rolling.helper"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.util"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.sift"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.filter,ch.qos.logback.core.helpers,ch.qos.logback.core.status"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,javax.servlet,javax.servlet.http"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.status"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core.spi"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.subst"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.rolling,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
+      <attribute name="version" value="1.1.3" type="Version"/>
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.util"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="size" value="490920" type="Long"/>
+      <attribute name="url" value="ch.qos.logback.core/ch.qos.logback.core-1.1.3.jar"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+      <attribute name="osgi.content" value="470D3868A206A75EDE4491F10D604D394A8815A963B361529995AFAFC933FE8C"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.mail))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.mail.internet))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.naming))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.net))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.net.ssl))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet.http))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.sql))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.xml.namespace))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.xml.parsers))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.xml.stream))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.xml.stream.events))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.xml.sax))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.xml.sax.helpers))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.codehaus.janino))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.codehaus.commons.compiler))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.fusesource.jansi)(&amp;(version&gt;=1.9.0)(!(version&gt;=2.0.0))))"/>
+      <directive name="resolution" value="optional"/>
     </requirement>
     <requirement namespace="osgi.ee">
       <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
