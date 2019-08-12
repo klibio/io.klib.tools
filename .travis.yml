@@ -1,10 +1,13 @@
-sudo: false
+os: windows
 
-language: java
+language: bash
 
-jdk:
-  - oraclejdk8
+install: 
+  - export JAVA_HOME=${JAVA_HOME:-/c/jdk}
+  - export PATH=${JAVA_HOME}/bin:${PATH}
+  - choco install jdk8 -params 'installdir=c:\\jdk' -y
+  - ./gradlew --version
 
-install: ./gradlew --version
+script: ./gradlew --continue
 
-script: ./gradlew --continue ## + tests
+after_success: ./gradlew --stop
