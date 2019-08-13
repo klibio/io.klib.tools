@@ -2,3 +2,202 @@
 wrapper {
   jarFile = rootProject.file('.gradle-wrapper/gradle-wrapper.jar')
 }
+
+//Maven Publishing
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'signing'
+apply plugin: 'maven-publish'
+
+dependencies {
+    testCompile 'junit:junit:4.+'
+}
+
+jar {
+    baseName = 'io.klib.tools'
+    version =  '0.1.0'
+    manifest {
+        attributes(
+        'Main-Class': 'hello.HelloWorld'
+        )
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+test {
+    // show standard out and standard error of the test JVM(s) on the console
+    testLogging.showStandardStreams = true
+}
+
+task sourceJar(type: Jar) {
+    classifier "sources"
+    from sourceSets.main.allJava 
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier "javadoc"
+    from javadoc.destinationDir
+}
+
+task signJar(dependsOn: 'jar',description: 'Sign Jars.',group: 'Build'){
+
+    def keyst = new File( "${keystoreFile}" )
+
+    if( !"${keystoreFile}" ) {
+        println 'Found no keystore file to sign jars'
+    }  
+
+    if (!project.hasProperty('keystorepass')) {
+        println 'Keestrorepass ist missing'
+    }    
+
+    if (!project.hasProperty('keypass')) {
+        println 'Keepass ist missing'
+    }      
+
+    if (!project.hasProperty('keyalias')) {
+        println 'Keyalias ist missing'
+    }               
+
+    doLast{
+      ant.signjar(
+                  jar: 'build/libs/*.jar',
+                  alias:"${keyalias}",
+                  storetype:"jks",
+                  keystore:"${keystoreFile}",
+                  storepass:"${keystorepass}",
+                  keypass:"${keypass}",
+                  verbose:"true",
+                  preservelastmodified:"true"
+      )
+    }
+
+}
+
+artifacts {
+    archives jar 
+    archives sourceJar
+    archives javadocJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+publishing {
+
+    publications {
+        mavenJava(MavenPublication) {
+            customizePom(pom)
+            groupId 'io.klib.tools'
+            artifactId 'io.klib.tools'
+            version '0.1.0-SNAPSHOT'
+
+            from components.java
+
+            // create the sign pom artifact
+            pom.withXml {
+                def pomFile = file("${project.buildDir}/generated-pom.xml")
+                writeTo(pomFile)
+                def pomAscFile = signing.sign(pomFile).signatureFiles[0]
+                artifact(pomAscFile) {
+                    classifier = null
+                    extension = 'pom.asc'
+                }
+            }
+
+            artifact(sourceJar) {
+                classifier = 'sources'
+            }
+            artifact(javadocJar) {
+                classifier = 'javadoc'
+            }
+            // create the signed artifacts
+            project.tasks.signArchives.signatureFiles.each {
+                artifact(it) {
+                    def matcher = it.file =~ /-(sources|javadoc)\.jar\.asc$/
+                    if (matcher.find()) {
+                        classifier = matcher.group(1)
+                    } else {
+                        classifier = null
+                    }
+                    extension = 'asc'
+                }
+            }
+
+        }
+    }
+    repositories {
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots"
+            credentials {
+
+                username sonatypeUsername
+                password sonatypePassword
+            }
+        }
+    }
+}
+
+def customizePom(pom) {
+    pom.withXml {
+        def root = asNode()
+
+        // eliminate test-scoped dependencies (no need in maven central POMs)
+        root.dependencies.removeAll { dep ->
+            dep.scope == "test"
+        }
+
+        // add all items necessary for maven central publication
+        root.children().last() + {
+            resolveStrategy = Closure.DELEGATE_FIRST
+
+            description 'Test to publish to Maven central'
+            name 'io.klib.tools'
+            url 'https://github.com/klibio/io.klib.tools'
+            organization {
+                name 'com.github.klibio'
+                url 'https://github.com/klibio'
+            }
+            /*issueManagement {
+                system 'GitHub'
+                url 'https://github.com/mautini/schemaorg-java/issues'
+            }*/
+            licenses {
+                license {
+                    name 'The Apache License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+            scm {
+                url 'https://github.com/klibio/io.klib.tools'
+                connection 'scm:git:git://github.com/klibio/io.klib.tools.git'
+                developerConnection 'scm:git:ssh://git@github.com:klibio/io.klib.tools.git'
+            }
+            developers {
+                developer {
+                    name 'Lukas Joraschek'
+                }
+            }
+        }
+    }
+}
+
+model {
+    tasks.generatePomFileForMavenJavaPublication {
+        destination = file("$buildDir/generated-pom.xml")
+    }
+    tasks.publishMavenJavaPublicationToMavenLocal {
+        dependsOn project.tasks.signJar
+        dependsOn project.tasks.signArchives
+    }
+    tasks.publishMavenJavaPublicationToMavenRepository {
+        dependsOn project.tasks.signJar
+        dependsOn project.tasks.signArchives
+    }
+}
+
