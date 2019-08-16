@@ -12,11 +12,7 @@ jdk:
   - oraclejdk8
 
 install:
- - if [ "${TRAVIS_OS_NAME}" == "windows" ]; then \n
-   export JAVA_HOME=${JAVA_HOME:-/c/jdk} && \n
-   export PATH=${JAVA_HOME}/bin:${PATH} && \n
-   choco install jdk8 -params 'installdir=c:\\jdk' -y; \n
-   fi
+ - if [ "${TRAVIS_OS_NAME}" == "windows" ]; then export JAVA_HOME=${JAVA_HOME:-/c/jdk} && export PATH=${JAVA_HOME}/bin:${PATH} && choco install jdk8 -params 'installdir=c:\\jdk' -y; fi
  - ./gradlew --version
 
 script:
