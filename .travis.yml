@@ -20,5 +20,3 @@ script:
 
 after_success:
   - if [ "${TRAVIS_OS_NAME}" == "windows" ]; then ./gradlew --stop; fi
-# - if [ "${TRAVIS_OS_NAME}" == "windows" ]; then export PATH=${JAVA_HOME}/bin:${PATH}; fi
-# - if [ "${TRAVIS_OS_NAME}" == "windows" ]; then choco install jdk8 -params 'installdir=c:\\jdk' -y; fi
