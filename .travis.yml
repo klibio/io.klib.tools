@@ -19,3 +19,6 @@ install:
 
 script:
   - ./gradlew --continue
+
+after_success:
+  - if [ "${TRAVIS_OS_NAME}" == "windows" ]; then ./gradlew stop; fi
