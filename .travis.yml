@@ -13,10 +13,7 @@ jdk:
 
 install:
  - if [ "${TRAVIS_OS_NAME}" == "windows" ]; then export JAVA_HOME=${JAVA_HOME:-/c/jdk} && export PATH=${JAVA_HOME}/bin:${PATH} && choco install jdk8 -params 'installdir=c:\\jdk' -y; fi
- - ./gradlew --version
+ - ./gradlew --version --no-daemon
 
 script:
-  - ./gradlew --continue
-
-after_success:
-  - if [ "${TRAVIS_OS_NAME}" == "windows" ]; then ./gradlew --stop; fi
+  - ./gradlew --continue --no-daemon
