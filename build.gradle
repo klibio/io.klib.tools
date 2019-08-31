@@ -13,15 +13,10 @@ apply plugin: 'maven-publish'
 dependencies {
     testCompile 'junit:junit:4.+'
 }
-
+//ignore main class
 jar {
     baseName = 'io.klib.tools'
     version =  '0.1.0'
-    manifest {
-        attributes(
-        'Main-Class': 'hello.HelloWorld'
-        )
-    }
 }
 
 sourceCompatibility = 1.8
