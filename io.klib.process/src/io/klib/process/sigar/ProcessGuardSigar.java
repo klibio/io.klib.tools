@@ -64,6 +64,9 @@ public class ProcessGuardSigar implements ProcessGuard {
 				}
 			}
 			logger.debug("killing pid: " + pid);
+			/* TODO Check if parent process still exists (maybe already quit)*/
+			// ProcState procState = sigar.getProcState(pid);
+			// procState. 
 			sigar.kill(pid, SIGKILL);
 		} catch (SigarException e) {
 			e.printStackTrace();
