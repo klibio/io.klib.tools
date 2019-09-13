@@ -75,6 +75,12 @@ public class ProcessGuardTest extends TestCase {
 			pg.killProcessRecursive(child);
 		}
 
+	try {
+		Thread.sleep(1000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 		List<Long> childPIDsAfter = pg.getChildPIDs(pid);
 		assertTrue(childPIDsAfter.size() == 0);
 

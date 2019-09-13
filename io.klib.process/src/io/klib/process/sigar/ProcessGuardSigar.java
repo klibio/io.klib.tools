@@ -62,6 +62,12 @@ public class ProcessGuardSigar implements ProcessGuard {
 				} catch (SigarException e) {
 					logger.error(e.getMessage(), e);
 				}
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					System.out.println("Testfail");
+					e.printStackTrace();
+				}
 			}
 			logger.debug("killing pid: " + pid);
 			sigar.kill(pid, SIGKILL);
