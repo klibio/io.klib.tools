@@ -74,6 +74,7 @@ public class ProcessGuardTest extends TestCase {
 		for (Long child : childPIDs) {
 			pg.killProcessRecursive(child);
 		}
+
 	try {
 		Thread.sleep(1000);
 	} catch (InterruptedException e) {
