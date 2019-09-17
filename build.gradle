@@ -13,11 +13,6 @@ apply plugin: 'maven-publish'
 dependencies {
     testCompile 'junit:junit:4.+'
 }
-//ignore main class
-jar {
-    baseName = 'io.klib.tools'
-    version =  '0.1.0'
-}
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -28,13 +23,13 @@ test {
 }
 
 task sourceJar(type: Jar) {
-    classifier "sources"
     from sourceSets.main.allJava 
+    classifier "sources"
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
+task javadocJar(type: Jar) {
+    from javadoc
     classifier "javadoc"
-    from javadoc.destinationDir
 }
 
 task signJar(dependsOn: 'jar',description: 'Sign Jars.',group: 'Build'){
@@ -46,11 +41,11 @@ task signJar(dependsOn: 'jar',description: 'Sign Jars.',group: 'Build'){
     }  
 
     if (!project.hasProperty('keystorepass')) {
-        println 'Keestrorepass ist missing'
+        println 'Keystrorepass ist missing'
     }    
 
     if (!project.hasProperty('keypass')) {
-        println 'Keepass ist missing'
+        println 'Keypass ist missing'
     }      
 
     if (!project.hasProperty('keyalias')) {
@@ -59,7 +54,7 @@ task signJar(dependsOn: 'jar',description: 'Sign Jars.',group: 'Build'){
 
     doLast{
       ant.signjar(
-                  jar: 'build/libs/*.jar',
+                  jar: ant.fileset(dir: '.', includes: '**/*.jar'),
                   alias:"${keyalias}",
                   storetype:"jks",
                   keystore:"${keystoreFile}",
@@ -103,7 +98,6 @@ publishing {
                     extension = 'pom.asc'
                 }
             }
-
             artifact(sourceJar) {
                 classifier = 'sources'
             }
@@ -122,14 +116,12 @@ publishing {
                     extension = 'asc'
                 }
             }
-
         }
     }
     repositories {
         maven {
             url "https://oss.sonatype.org/content/repositories/snapshots"
             credentials {
-
                 username sonatypeUsername
                 password sonatypePassword
             }
