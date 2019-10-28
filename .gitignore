@@ -1,6 +1,7 @@
 _wrk/
 _result/
 .gradle/
+build/
 
 # Eclipse Workspace Meta-data
 .metadata
