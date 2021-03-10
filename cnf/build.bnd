@@ -1,30 +1,79 @@
-########################
-## BUILD SETTINGS ##
-########################
-## Java Compiler Options
-#java:                  java
-#javac:                 javac
-javac.source:           1.8
-javac.target:           1.8
-javac.compliance:       1.8
-javac.debug:            on
+# Configure Repositories
+-plugin.1.R7.API: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:osgi-api:7.0.0; \
+		readOnly=true; \
+		name="OSGi R7 API"
+-plugin.2.Enterprise.API: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:enterprise-api:7.0.0; \
+		readOnly=true; \
+		name="Enterprise Java APIs"
+-plugin.3.R7.Impl: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:impl-index:7.0.0; \
+		readOnly=true; \
+		name="OSGi R7 Reference Implementations"
+-plugin.4.Test: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:test-bundles:7.0.0; \
+		readOnly=true; \
+		name="Testing Bundles"
+-plugin.5.Debug: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:debug-bundles:7.0.0; \
+		readOnly=true; \
+		name="Debug Bundles"
+-plugin.6.Central: \
+	aQute.bnd.repository.maven.provider.MavenBndRepository; \
+		releaseUrl=https://repo.maven.apache.org/maven2/; \
+		index=${.}/central.maven; \
+		readOnly=true; \
+		name="Maven Central"
+-plugin.7.Local: \
+	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+		name = Local; \
+		pretty = true; \
+		local = ${build}/local
 
-# This build requires newer Bnd features
-#-require-bnd: "(version=4.2.0)"
+-plugin.8.Templates: \
+	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+		name = Templates; \
+		pretty = true; \
+		local = ${build}/templates
 
-#
-# Custom Settings
-#
-Git-Descriptor:         ${system-allow-fail;git describe --dirty --always --abbrev=9}
-Git-SHA:                ${system-allow-fail;git rev-list -1 --no-abbrev-commit HEAD}
+-plugin.9.Release: \
+	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+		name = Release; \
+		pretty = true; \
+		local = ${build}/release
 
-# This is the version to baseline this build against. See cnf/ext/baseline.mvn.
-baseline.version:       0.1.0
-# biz.aQute.bndlib:aQute.bnd.osgi.About.CURRENT needs to be kept in sync with the base.version.
-base.version:           0.1.0
-# Uncomment the following line to build the non-snapshot version.
-#-snapshot:
-Bundle-Version:         ${base.version}.${tstamp}-SNAPSHOT
+-releaserepo: Release
+-baselinerepo: Release
+
+# Always use contracts
+-contract: *
+
+# Set Git revision information in the manifests of built bundles
+Git-Descriptor:           ${system-allow-fail;git describe --dirty --always}
+Git-SHA:                  ${system-allow-fail;git rev-list -1 HEAD}
+
+# JUnit
+junit: org.apache.servicemix.bundles.junit; version=4.12
+mockito: org.mockito.mockito-core; version=2.13.0
+mockito-deps: org.objenesis; version=2.6.0,\
+  net.bytebuddy.byte-buddy; version=1.7.9,\
+  net.bytebuddy.byte-buddy-agent; version=1.7.9 
 
 # Maven info. The maven artifactId defaults to Bundle-SymbolicName
 -groupid:               io.klib
@@ -37,6 +86,7 @@ Bundle-Copyright:       Copyright (c) Kirschners GmbH (2017, ${tstamp;yyyy}) and
 Bundle-License:         EPL-1.0; \
                         description="Eclipse Public License, Version 1.0"; \
                         link="https://www.eclipse.org/legal/epl-v10.html"
+
 Bundle-DocURL:          https://klib.io/doc/
 Bundle-SCM:             url=https://github.com/klibio/io.klib.tools, \
                         connection=scm:git:https://github.com/klibio/io.klib.tools.git, \
@@ -50,13 +100,3 @@ Bundle-Developers: \
         organizationUrl=https://kirschners.de; \
         roles="architect,developer"; \
         timezone=1
-
--make:                  (*).(jar);type=bnd; recipe="bnd/$1.bnd"
--reproducible: true
--noextraheaders: true
-
-# Used in unit testing
--remoteworkspace: true
--runproperties.testlauncher0: in.workspace=workspace
--runproperties.testlauncher1: in.project=workspace
--runproperties.testlauncher2: in.bndrun=workspace
