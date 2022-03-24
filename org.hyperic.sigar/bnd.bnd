@@ -5,7 +5,7 @@
 bundleVersion=1.6.4
 
 Bundle-Description: SIGAR - System Information Gatherer And Reporter
-Bundle-Version: ${bundleVersion}.${tstamp;yyyyMMdd-HHmmss}
+Bundle-Version: ${bundleVersion}.${tstamp;yyyyMMdd-HHmmss}-SNAPSHOT
 Bundle-License: Apache-2.0; \
                 description="Apache License, Version 2.0"; \
                 link="https://opensource.org/licenses/Apache-2.0"

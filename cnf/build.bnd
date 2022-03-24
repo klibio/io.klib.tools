@@ -28,7 +28,7 @@ Bundle-Version:         ${base.version}.${tstamp}-SNAPSHOT
 -diffignore:            Bundle-Version
 
 # Maven info. The maven artifactId defaults to Bundle-SymbolicName
--groupid:               io.klib
+-groupid:               io.klib.tools
 -pom:                   version=${if;${def;-snapshot};${versionmask;===;${@version}}-${-snapshot};${versionmask;===s;${@version}}}
 -maven-release:         pom;path=JAR,javadoc;-classpath="${project.buildpath}"
 # -snapshot unset (commented out) is a snapshot build. (e.g. 1.0.0-SNAPSHOT)
