@@ -1,8 +1,7 @@
 -buildpath: \
-	osgi.annotation;version=6.0.1,\
-	osgi.core;version=6.0,\
-	osgi.cmpn;version=6.0,\
-	osgi.enroute.base.api,\
+	osgi.annotation;version=7,\
+	osgi.core;version=7.0,\
+	osgi.cmpn;version=7.0,\
 	slf4j.api;version=1.7,\
 	org.apache.felix.gogo.runtime;version=0.16,\
 	org.hyperic.sigar.aio;version=latest,\
@@ -10,9 +9,5 @@
 
 -testpath: \
 	org.apache.servicemix.bundles.junit; version=4.12.0.1
-
-javac.source: 1.8
-javac.target: 1.8
-
 
 -sub: *.bnd

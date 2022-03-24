@@ -1,0 +1,97 @@
+releaserepo:            ${workspace}/dist/bundles
+mavencentral:           https://repo.maven.apache.org/maven2
+
+# Configure Repositories
+-plugin.1.R7.API: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:osgi-api:7.0.0; \
+		readOnly=true; \
+		name="OSGi R7 API"
+-plugin.2.Enterprise.API: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:enterprise-api:7.0.0; \
+		readOnly=true; \
+		name="Enterprise Java APIs"
+-plugin.3.R7.Impl: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:impl-index:7.0.0; \
+		readOnly=true; \
+		name="OSGi R7 Reference Implementations"
+-plugin.4.Test: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:test-bundles:7.0.0; \
+		readOnly=true; \
+		name="Testing Bundles"
+-plugin.5.Debug: \
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:debug-bundles:7.0.0; \
+		readOnly=true; \
+		name="Debug Bundles"
+-plugin.6.Central: \
+	aQute.bnd.repository.maven.provider.MavenBndRepository; \
+		releaseUrl=https://repo.maven.apache.org/maven2/; \
+		index=${.}/central.maven; \
+		readOnly=true; \
+		name="Maven Central"
+
+-plugin.10.Main:\
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        name="Local";\
+        noupdateOnRelease=true
+
+-plugin.90.Release: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        name="Release";\
+        releaseUrl="${fileuri;${releaserepo}}";\
+        snapshotUrl="${fileuri;${releaserepo}}";\
+        noupdateOnRelease=true
+-plugin.91.jfrog: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        name="JFrog";\
+        releaseUrl="https://artifactory.klib.io/artifactory/libs-release-local/";\
+        snapshotUrl="https://artifactory.klib.io/artifactory/libs-snapshot-local/";\
+        noupdateOnRelease=true
+-plugin.92.sonatype: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        snapshotUrl=https://oss.sonatype.org/content/repositories/snapshots/;\
+        releaseUrl=https://oss.sonatype.org/service/local/staging/deploy/maven2/;\
+        index=${.}/sonatype.maven;\
+        name="Sonatype"
+-plugin.99.Baseline:\
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        name="Baseline";\
+        releaseUrl="${mavencentral}";\
+        index="${.}/baseline.mvn";\
+        readOnly=true
+
+-buildrepo: Local
+-baselinerepo: Baseline
+
+# target release repo configuration by env variables
+-releaserepo: Release
+
+-releaserepo.jfrog: ${if;${env;JFROG};JFrog}
+-connection-settings.jfrog: ${if;${-releaserepo.jfrog};${.}/jfrog-settings.xml}
+
+-releaserepo.sonatype: ${if;${env;SONATYPE};Sonatype}
+-connection-settings.sonatype: ${if;${-releaserepo.sonatype};${.}/sonatype-settings.xml}
+
+# Always use contracts
+-contract: *
+
+# gpg signing
+-maven-release: sign;passphrase=${env;GPG_PASSPHRASE}
+
+# With this set, you can modify how bnd calls gpg. The -homedir points to the keyring to use.
+# The --pinentry-mode loopback allows for a headless run without any manual input
+gpg: gpg --homedir ~/.gnupg --pinentry-mode loopback

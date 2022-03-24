@@ -1,0 +1,2 @@
+# baseline.version is set in cnf/build.bnd
+io.klib:io.klib.osgi.servlet.component:${baseline.version}
