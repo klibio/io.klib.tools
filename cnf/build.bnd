@@ -34,7 +34,7 @@ Bundle-Version:         ${base.version}.${tstamp}-SNAPSHOT
 # -snapshot unset (commented out) is a snapshot build. (e.g. 1.0.0-SNAPSHOT)
 # -snapshot set to a value (e.g. RC1) is a release build with the value as the Maven version qualifier. (e.g. 1.0.0-RC1)
 # -snapshot set to the empty string is a release build with no Maven version qualifier. (e.g. 1.0.0)
-#-snapshot:
+-snapshot: RC1
 
 Automatic-Module-Name:  ${def;bsn}
 Bundle-Vendor:          Kirschners GmbH https://klib.io/
@@ -44,23 +44,23 @@ Bundle-License:         "${SPDX-License-Identifier}";\
                         description="This program and the accompanying materials are made available under the terms of the Apache License, Version 2.0, or the Eclipse Public License 2.0.";\
                         link="https://opensource.org/licenses/Apache-2.0,https://opensource.org/licenses/EPL-2.0"
 Bundle-DocURL:          https://bnd.bndtools.org/
-Bundle-SCM:             url=https://gitlab.klib.io/dev/osgi-demo, \
-                        connection=scm:git:https://gitlab.klib.io/dev/osgi-demo.git, \
-                        developerConnection=scm:git:git@gitlab.klib.io:dev/osgi-demo.git, \
+Bundle-SCM:             url=https://github.com/klibio/io.klib.tools, \
+                        connection=scm:git:https://github.com/klibio/io.klib.tools.git, \
+                        developerConnection=scm:git:git@github.com/klibio/io.klib.tools.git, \
                         tag=${Git-Descriptor}
 Bundle-Developers: \
     peterkir; \
         email=peter@klib.io; \
         name="Peter Kirschner"; \
         organization="Kirschners GmbH"; \
-        organizationUrl=https://gitlab.klib.io/dev/osgi-demo; \
+        organizationUrl=https://github.com/klibio/io.klib.tools; \
         roles="architect,developer"; \
         timezone=1, \
     alex; \
         email=alex@klib.io; \
         name="Alex Schindler"; \
         organization="Kirschners GmbH"; \
-        organizationUrl=https://gitlab.klib.io/dev/osgi-demo; \
+        organizationUrl=https://github.com/klibio/io.klib.tools; \
         roles="developer"; \
         timezone=1
 

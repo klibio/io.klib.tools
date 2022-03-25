@@ -90,7 +90,7 @@ mavencentral:           https://repo.maven.apache.org/maven2
 -contract: *
 
 # gpg signing
--maven-release: sign;passphrase=${env;GPG_PASSPHRASE}
+-maven-release.güg: sign;passphrase=${env;GPG_PASSPHRASE}
 
 # With this set, you can modify how bnd calls gpg. The -homedir points to the keyring to use.
 # The --pinentry-mode loopback allows for a headless run without any manual input
