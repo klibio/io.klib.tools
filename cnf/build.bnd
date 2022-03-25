@@ -30,7 +30,10 @@ Bundle-Version:         ${base.version}.${tstamp}-SNAPSHOT
 # Maven info. The maven artifactId defaults to Bundle-SymbolicName
 -groupid:               io.klib.tools
 -pom:                   version=${if;${def;-snapshot};${versionmask;===;${@version}}-${-snapshot};${versionmask;===s;${@version}}}
--maven-release:         pom;path=JAR,javadoc;-classpath="${project.buildpath}"
+-maven-release:         pom,sign;passphrase=${env;GPG_PASSPHRASE}
+
+gpg: gpg --homedir ${def;USERHOME;~}/.gnupg --pinentry-mode loopback
+
 # -snapshot unset (commented out) is a snapshot build. (e.g. 1.0.0-SNAPSHOT)
 # -snapshot set to a value (e.g. RC1) is a release build with the value as the Maven version qualifier. (e.g. 1.0.0-RC1)
 # -snapshot set to the empty string is a release build with no Maven version qualifier. (e.g. 1.0.0)
