@@ -1,17 +1,15 @@
 -sub: *.bnd
 
--fixupmessages: \
-  "Eclipse: The Bundle Symbolic org.hyperic.sigar is a sub-bundle root.bnd but uses the project name";is:=ignore,\
-  "Host org.hyperic.sigar= for this fragment cannot be found on the classpath";is:=ignore
+-fixupmessages: "org.hyperic.sigar*";is:=ignore
 
 bundleVersion=1.6.4
 
 Bundle-Description: SIGAR - System Information Gatherer And Reporter
-Bundle-Version: ${bundleVersion}.${tstamp;yyyyMMdd-HHmmss}
+Bundle-Version: ${bundleVersion}.${tstamp;yyyyMMdd-HHmmss}-SNAPSHOT
 Bundle-License: Apache-2.0; \
                 description="Apache License, Version 2.0"; \
                 link="https://opensource.org/licenses/Apache-2.0"
 
 -buildpath: \
-	log4j.over.slf4j;version=1.7,\
+	log4j.over.slf4j;version='1.7',\
 	lib/sigar.jar;version=file

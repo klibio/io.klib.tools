@@ -16,11 +16,9 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import io.klib.api.ProcessGuard;
-import osgi.enroute.debug.api.Debug;
 
-@Component(immediate = true, service = ProcessGuardCommand.class, property = { Debug.COMMAND_SCOPE + "=os",
-		Debug.COMMAND_FUNCTION + "=listProc", Debug.COMMAND_FUNCTION + "=killProcRecursive",
-		Debug.COMMAND_FUNCTION + "=killProc" })
+@Component(immediate = true, service = ProcessGuardCommand.class, property = { "osgi.command.scope=os",
+		"osgi.command.function=listProc", "osgi.command.function=killProcRecursive", "osgi.command.function=killProc" })
 @ConsumerType
 public class ProcessGuardCommand {
 

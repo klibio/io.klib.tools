@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>cnf</name>
+	<name>io.klib.tools</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,25 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1647589843518</id>
+			<id>1648109071164</id>
+			<name></name>
+			<type>5</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-true-.*</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1648109071165</id>
+			<name></name>
+			<type>9</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-.settings</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1648133054649</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
