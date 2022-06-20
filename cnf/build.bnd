@@ -30,7 +30,8 @@ Bundle-Version:         ${base.version}.${tstamp}-SNAPSHOT
 # Maven info. The maven artifactId defaults to Bundle-SymbolicName
 -groupid:               io.klib.tools
 -pom:                   version=${if;${def;-snapshot};${versionmask;===;${@version}}-${-snapshot};${versionmask;===s;${@version}}}
--maven-release:         pom,sign;passphrase=${env;GPG_PASSPHRASE}
+-maven-release:         pom
+#-maven-release:         pom,sign;passphrase=${env;GPG_PASSPHRASE}
 
 gpg: gpg --homedir ${def;USERHOME;~}/.gnupg --pinentry-mode loopback
 
