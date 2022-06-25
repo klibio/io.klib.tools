@@ -27,7 +27,7 @@ dist/
 
 # Package Files #
 *.jar
-!.gradle-wrapper/**/*.jar
+!.gradle/wrapper/**/*.jar
 !cnf/**/*.jar
 !**/lib/*.jar
 *.war
