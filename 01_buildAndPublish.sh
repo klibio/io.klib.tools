@@ -9,6 +9,13 @@ SCRIPT_DIR=$(dirname "$SCRIPT")
 echo "# build relevant environment configuration"
 env | sort | grep -i '^_.*'
 
+if [ "${_BRANCH}" != "main" ]; then
+  JFROG="true"
+else
+  JFROG="true"
+  #SONATYPE="true"
+fi
+
 echo -e "\n# launching gradle-wrapper build"
 HOME=$PWD/HOME
 ./gradlew \

@@ -1,0 +1,19 @@
+name: buildAndPublish
+on:
+  push:
+    branches:
+      - 'main'
+      - 'feature/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Script execution
+        run: |
+          cat /etc/passwd
+          ls -lar .
+          pwd
+          chmod +x 01_buildAndPublish.sh
+          ./01_buildAndPublish.sh
